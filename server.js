@@ -1,5 +1,6 @@
 const express = require('express');
 const app = express();
+const cors = require('cors');
 require('dotenv').config();
 
 const clientId = process.env.SPOTIFY_CLIENT_ID;
@@ -16,6 +17,7 @@ const authUrl = `${authEndpoint}?client_id=${clientId}&response_type=code&redire
 
 // Middleware to parse JSON bodies
 app.use(express.json());
+app.use(cors());
 
 //
 const PORT = process.env.PORT || 3000;
